@@ -1,0 +1,57 @@
+[
+  {
+    "id": "steady-pilgrim",
+    "name": "Steady Pilgrim",
+    "category": "Beer",
+    "style": "Keller Pils",
+    "abv": "4.8% ABV",
+    "price": "£5.80",
+    "origin": "Canterbury, Kent",
+    "tastingNotes": "Bright, crisp, and gently herbal with a clean snap that makes it ideal as a first pint.",
+    "featured": true
+  },
+  {
+    "id": "cathedral-negroni",
+    "name": "Cool Negroni",
+    "category": "Cocktail",
+    "style": "House Signature",
+    "abv": "Stirred",
+    "price": "£9.50",
+    "origin": "Pegasus Back Bar",
+    "tastingNotes": "A bittersweet, orange-led Negroni built with a softer gin profile and a little extra spice.",
+    "featured": true
+  },
+  {
+    "id": "juniper-arc",
+    "name": "Juniper Arc",
+    "category": "Gin",
+    "style": "London Dry",
+    "abv": "43% ABV",
+    "price": "£6.20",
+    "origin": "Edinburgh, Scotland",
+    "tastingNotes": "Classic juniper up front with coriander, lemon peel, and a dry peppery finish.",
+    "featured": false
+  },
+  {
+    "id": "oak-room-reserve",
+    "name": "Oak Room Reserve",
+    "category": "Rum",
+    "style": "Aged Caribbean Blend",
+    "abv": "40% ABV",
+    "price": "£6.80",
+    "origin": "Barbados & Jamaica",
+    "tastingNotes": "Round and warming with toffee, charred pineapple, baking spice, and a little oak smoke.",
+    "featured": true
+  },
+  {
+    "id": "westgate-orange",
+    "name": "Westgate Orange",
+    "category": "Wine",
+    "style": "Skin Contact White",
+    "abv": "12.5% ABV",
+    "price": "£7.40",
+    "origin": "Friuli, Italy",
+    "tastingNotes": "Textured and aromatic with apricot skin, tea tannin, and enough freshness to stay lively.",
+    "featured": false
+  }
+]
