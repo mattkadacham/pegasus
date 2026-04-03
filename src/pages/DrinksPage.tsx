@@ -1,93 +1,97 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { SectionIntro } from "../components/SectionIntro";
-import drinks from "../data/drinks.json";
-import type { MenuDrink } from "../types";
+import { useDrinks } from "../hooks/useDrinks";
 
-const menu = drinks as MenuDrink[];
+const bottlesPdfUrl = "https://www.pegasustaproom.com/wp-content/uploads/2024/09/PegClipMenu1.pdf";
+const untappdEmbedUrl = "https://business.untappd.com/embeds/iframes/49169/174893";
 
 export function DrinksPage() {
-  const featuredDrinks = menu.filter((drink) => drink.featured);
+  const { items, source } = useDrinks();
+  const [showOfficialBoard, setShowOfficialBoard] = useState(false);
+  const scrollToMenu = () => {
+    document.getElementById("other-drinks-menu")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   return (
     <main className="page">
-      <section className="subhero">
-        <div className="section__inner subhero__inner">
-          <p className="section-tag">Live Drinks Page</p>
-          <h1 className="subhero__title">The current list, powered by a simple JSON file.</h1>
-          <p className="subhero__body">
-            The list below is driven by <code>src/data/drinks.json</code>, so you can add, remove, or update drinks
-            without touching the page markup. It keeps the live menu practical while the homepage stays focused and elegant.
-          </p>
-          <div className="hero__actions">
-            <Link className="button button--solid" to="/">
-              Back to Home
-            </Link>
-            <a className="button button--ghost" href="https://www.pegasustaproom.com" target="_blank" rel="noreferrer">
-              Official Website
-            </a>
-          </div>
-        </div>
-      </section>
-
       <section className="section">
         <div className="section__inner">
           <SectionIntro
-            eyebrow="Featured Picks"
-            title="A handful of example pours to shape the live menu."
-            body="These are example items for now, but the structure is ready for a fuller list whenever you want to expand it."
+            eyebrow="Beer Board"
+            title="Current pours"
+            body="A rolling line-up of current pours, from crisp lagers and hazy pales to richer, slower sippers. For bottles, cans, wine, and sparkling, head to the full drinks menu just below."
           />
 
+          <div className="section-cta">
+            <button className="button button--ghost" type="button" onClick={scrollToMenu}>
+              See Bottles, Cans &amp; Wine
+            </button>
+          </div>
+
           <div className="menu-grid">
-            {featuredDrinks.map((drink) => (
+            {items.map((drink) => (
               <article className="menu-card menu-card--featured" key={drink.id}>
                 <div className="menu-card__meta">
-                  <span>{drink.category}</span>
+                  <span>{drink.section}</span>
                   <span>{drink.abv}</span>
                 </div>
                 <h3>{drink.name}</h3>
                 <p className="menu-card__style">
-                  {drink.style} • {drink.origin}
+                  {drink.style} • {drink.brewery}
                 </p>
-                <p>{drink.tastingNotes}</p>
+                <p>{drink.description}</p>
                 <div className="menu-card__footer">
                   <strong>{drink.price}</strong>
-                  <span>Featured</span>
+                  <span>{source === "untappd" ? "Live Pour" : "Snapshot"}</span>
                 </div>
               </article>
             ))}
           </div>
+
+          <div className="official-board">
+            <div className="official-board__copy">
+              <p>
+                Prefer the official Untappd board view? You can open the embedded live board here without leaving the page.
+              </p>
+              <div className="section-cta">
+                <button className="button button--ghost" type="button" onClick={() => setShowOfficialBoard((current) => !current)}>
+                  {showOfficialBoard ? "Hide Official Live Board" : "Show Official Live Board"}
+                </button>
+                <a className="button button--solid" href="https://untappd.com/v/pegasus-tap-room/8260044" target="_blank" rel="noreferrer">
+                  Open Untappd Venue Menu
+                </a>
+              </div>
+            </div>
+
+            {showOfficialBoard ? (
+              <div className="embed-panel__frame">
+                <iframe
+                  title="Pegasus Untappd live beer menu"
+                  src={untappdEmbedUrl}
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                />
+              </div>
+            ) : null}
+          </div>
         </div>
       </section>
 
-      <section className="section menu-section">
+      <section className="section menu-section" id="other-drinks-menu">
         <div className="section__inner">
           <SectionIntro
-            eyebrow="Full List"
-            title="Current examples from the editable data file."
-            body="Keep the file shape the same and you can update names, categories, ABV, notes, and prices whenever the menu changes."
+            eyebrow="Printable Menu"
+            title="Bottles, cans, wine, and the rest"
+            body="Beyond the taps, the full drinks menu covers bottles, cans, low and no alcohol, wine, sparkling, and everything else worth browsing a little more slowly."
           />
 
-          <div className="menu-grid">
-            {menu.map((drink) => (
-              <article className="menu-card" key={drink.id}>
-                <div className="menu-card__meta">
-                  <span>{drink.category}</span>
-                  <span>{drink.abv}</span>
-                </div>
-                <h3>{drink.name}</h3>
-                <p className="menu-card__style">
-                  {drink.style} • {drink.origin}
-                </p>
-                <p>{drink.tastingNotes}</p>
-                <div className="menu-card__footer">
-                  <strong>{drink.price}</strong>
-                  <span>{drink.featured ? "Staff Pick" : "Menu Item"}</span>
-                </div>
-              </article>
-            ))}
+          <div className="pdf-panel">
+            <iframe title="Pegasus drinks menu PDF" src={bottlesPdfUrl} />
           </div>
         </div>
       </section>
+
     </main>
   );
 }

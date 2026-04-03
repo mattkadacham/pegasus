@@ -25,14 +25,18 @@ export type Social = {
   href: string;
 };
 
-export type MenuDrink = {
+export type BeerMenuSource = "mock" | "untappd";
+export type DrinksLoadStatus = "idle" | "loading" | "live" | "fallback" | "error";
+
+export type BeerMenuItem = {
   id: string;
   name: string;
-  category: string;
   style: string;
   abv: string;
+  brewery: string;
   price: string;
-  origin: string;
-  tastingNotes: string;
-  featured: boolean;
+  section: string;
+  description: string;
+  labelImage?: string;
+  featured?: boolean;
 };
