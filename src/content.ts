@@ -2,7 +2,7 @@ import type { Feature, Hours, Review, Social, Stat } from "./types";
 
 export const navLinks = [
   { label: "Story", href: "about", type: "section" },
-  { label: "Drinks", href: "/drinks", type: "route" },
+  { label: "Drinks", href: "drinks", type: "section" },
   { label: "Atmosphere", href: "atmosphere", type: "section" },
   { label: "Visit", href: "visit", type: "section" },
   { label: "Events", href: "events", type: "section" },

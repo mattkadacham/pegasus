@@ -12,11 +12,11 @@ export function DrinksPage() {
     <main className="page">
       <section className="subhero">
         <div className="section__inner subhero__inner">
-          <p className="section-tag">Drinks Page</p>
-          <h1 className="subhero__title">An editable menu powered by JSON.</h1>
+          <p className="section-tag">Live Drinks Page</p>
+          <h1 className="subhero__title">The current list, powered by a simple JSON file.</h1>
           <p className="subhero__body">
             The list below is driven by <code>src/data/drinks.json</code>, so you can add, remove, or update drinks
-            without touching the page markup.
+            without touching the page markup. It keeps the live menu practical while the homepage stays focused and elegant.
           </p>
           <div className="hero__actions">
             <Link className="button button--solid" to="/">
@@ -33,8 +33,8 @@ export function DrinksPage() {
         <div className="section__inner">
           <SectionIntro
             eyebrow="Featured Picks"
-            title="A few example pours to prove out the data model."
-            body="These cards are just examples for now, but the structure is ready for a fuller menu whenever you want to expand it."
+            title="A handful of example pours to shape the live menu."
+            body="These are example items for now, but the structure is ready for a fuller list whenever you want to expand it."
           />
 
           <div className="menu-grid">

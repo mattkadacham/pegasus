@@ -3,6 +3,10 @@ import { SectionIntro } from "../components/SectionIntro";
 import { featuredCategories, features, openingHours, reviews, socials, stats } from "../content";
 
 export function HomePage() {
+  const scrollToSection = (sectionId: string) => {
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <main>
       <section className="hero" id="hero">
@@ -13,24 +17,27 @@ export function HomePage() {
             Pegasus
             <span>Tap Room</span>
           </h1>
-          <p className="hero__subhead">Craft beer, gin, wine, and rum in a quietly dramatic room.</p>
+          <p className="hero__subhead">Craft Beer &amp; Gin Palace • Est. 2018</p>
           <div className="hero__ornament" aria-hidden="true">
             <span />
             <i />
             <span />
           </div>
           <p className="hero__copy">
-            An intimate Canterbury bar with rotating taps, a serious spirits back bar, and the kind of atmosphere that
-            makes one drink turn into the whole evening.
+            Your escape in St Dunstan&apos;s Quarter: 14 rotating craft taps, 100+ world gins, fine wines, and rum in
+            a centuries-old space with original wooden beams and intimate corners.
           </p>
           <div className="hero__actions">
+            <button className="button button--solid" type="button" onClick={() => scrollToSection("drinks")}>
+              See Today&apos;s Pours
+            </button>
             <Link className="button button--solid" to="/drinks">
-              Browse the Drinks Page
+              Open Live Drinks Page
             </Link>
             <button
               className="button button--ghost"
               type="button"
-              onClick={() => document.getElementById("visit")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+              onClick={() => scrollToSection("visit")}
             >
               Plan a Visit
             </button>
@@ -52,12 +59,12 @@ export function HomePage() {
           <div className="about__copy">
             <SectionIntro
               eyebrow="Our Story"
-              title="A polished little hideaway in the heart of Canterbury."
-              body="Founded in 2018, Pegasus Tap Room blends Victorian character with a more curated, modern drinks culture. It feels historic without becoming dusty, and refined without losing warmth."
+              title="A Gem in the Heart of Canterbury"
+              body="Founded in July 2018, Pegasus Tap Room is an upmarket, eco-friendly bar on historic St Dunstan&apos;s Street, just a short walk from Canterbury Cathedral. Original beams, intimate alcoves, and vintage touches meet a genuinely world-class drinks selection."
             />
             <p className="about__extra">
-              Exposed beams, small corners, and cinema seating give the room its personality. The drinks program does
-              the rest, moving from hop-forward pints to globe-spanning gins with the same sense of care.
+              Whether you&apos;re chasing the next great IPA or exploring small-batch distilleries from around the world,
+              the room is designed to feel characterful, calm, and quietly special.
             </p>
             <a className="button button--ghost" href="mailto:info@pegasustaproom.com">
               Get in Touch
@@ -86,8 +93,8 @@ export function HomePage() {
         <div className="section__inner">
           <SectionIntro
             eyebrow="What We Pour"
-            title="A menu built for regulars and the gloriously curious."
-            body="The bar offer stays broad, but the dedicated drinks page is now where the editable live list belongs. Update the JSON file and the page updates with it."
+            title="The Finest Drops, Rotating Daily"
+            body="Our line-up stays lively, from celebrated UK microbreweries to Belgian farmhouse ales and adventurous spirits. Start here for the shape of the menu, then open the live drinks page for the editable list."
           />
 
           <div className="drinks-grid">
@@ -105,8 +112,11 @@ export function HomePage() {
 
           <div className="section-cta">
             <Link className="button button--solid" to="/drinks">
-              Open Full Drinks Page
+              View Full Live Drinks List
             </Link>
+            <button className="button button--ghost" type="button" onClick={() => scrollToSection("visit")}>
+              Visit the Bar
+            </button>
           </div>
         </div>
       </section>
@@ -116,8 +126,8 @@ export function HomePage() {
           <div>
             <SectionIntro
               eyebrow="The Space"
-              title="Historic texture, low lighting, and a little theatre."
-              body="Pegasus feels intimate rather than tiny. It balances old wood, moody glow, and a sense of discovery that works equally well for a quick pint or a slower evening."
+              title="Old Bones, New Spirit"
+              body="Step into a characterful building with centuries of Canterbury history. Original wooden beams frame intimate alcoves, warm lighting, and a room that feels tucked away without ever feeling closed in."
             />
 
             <div className="feature-list">
@@ -149,8 +159,8 @@ export function HomePage() {
           <div>
             <SectionIntro
               eyebrow="Plan Your Visit"
-              title="Opening hours, contact, and where to find the front door."
-              body="Everything you need before heading over, whether you are planning a relaxed weekday drink or timing a Saturday stop in Canterbury."
+              title="Opening Hours &amp; Contact"
+              body="Everything you need before heading over, whether you&apos;re planning a relaxed weekday drink or a Saturday stop in Canterbury."
             />
 
             <div className="hours-card">
@@ -195,8 +205,8 @@ export function HomePage() {
         <div className="section__inner">
           <SectionIntro
             eyebrow="What&apos;s On"
-            title="Tap takeovers, themed pours, and reasons to come back often."
-            body="The quickest way to catch new releases, takeover nights, and special tastings is to follow Pegasus online. This is a place with a living calendar."
+            title="Tap Takeovers &amp; Special Events"
+            body="We regularly host brewery tap takeovers, themed gin evenings, and special tasting sessions. Follow along online to catch the next one."
             align="center"
           />
 

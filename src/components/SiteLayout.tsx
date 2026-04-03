@@ -29,13 +29,9 @@ export function SiteLayout() {
           <ul className="nav-links">
             {navLinks.map((item) => (
               <li key={item.href}>
-                {item.type === "route" ? (
-                  <Link to={item.href}>{item.label}</Link>
-                ) : (
-                  <button className="nav-link-button" type="button" onClick={() => void goToSection(item.href)}>
-                    {item.label}
-                  </button>
-                )}
+                <button className="nav-link-button" type="button" onClick={() => void goToSection(item.href)}>
+                  {item.label}
+                </button>
               </li>
             ))}
           </ul>
@@ -49,20 +45,14 @@ export function SiteLayout() {
         <p className="footer__sub">Craft Beer and Gin Palace • Canterbury, Kent</p>
         <div className="footer__links">
           {navLinks.map((item) => (
-            item.type === "route" ? (
-              <Link to={item.href} key={item.href}>
-                {item.label}
-              </Link>
-            ) : (
-              <button
-                className="nav-link-button"
-                type="button"
-                onClick={() => void goToSection(item.href)}
-                key={item.href}
-              >
-                {item.label}
-              </button>
-            )
+            <button
+              className="nav-link-button"
+              type="button"
+              onClick={() => void goToSection(item.href)}
+              key={item.href}
+            >
+              {item.label}
+            </button>
           ))}
         </div>
         <p className="footer__copy">86 St Dunstan&apos;s Street • Canterbury CT2 8AD • +44 1227 637280</p>
