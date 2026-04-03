@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import { FacebookLink, InstagramLink, MailLink, UntappdLink } from "../components/LinkButtons";
 import { SectionIntro } from "../components/SectionIntro";
 import { featuredCategories, features, openingHours, reviews, socials, stats } from "../content";
 
@@ -80,9 +81,14 @@ export function HomePage() {
               Whether you&apos;re chasing the next great IPA or exploring small-batch distilleries from around the world,
               the room is designed to feel characterful, calm, and quietly special.
             </p>
-            <a className="button button--ghost" href="mailto:info@pegasustaproom.com">
-              Get in Touch
-            </a>
+            <div className="about-contact">
+              <p className="about-contact__label">Get in Touch</p>
+              <div className="about-socials" aria-label="Contact links">
+                <MailLink />
+                <InstagramLink />
+                <FacebookLink />
+              </div>
+            </div>
           </div>
 
           <div className="about__visual">
@@ -225,12 +231,9 @@ export function HomePage() {
           />
 
           <div className="socials">
-            {socials.map((social) => (
-              <a className="social-chip" href={social.href} key={social.label} target="_blank" rel="noreferrer">
-                <span>{social.icon}</span>
-                {social.label}
-              </a>
-            ))}
+            <InstagramLink />
+            <FacebookLink />
+            <UntappdLink />
           </div>
         </div>
       </section>

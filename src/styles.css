@@ -368,6 +368,65 @@ select {
   max-width: 620px;
 }
 
+.about-contact {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.about-contact__label {
+  margin: 0;
+  font-family: "Cinzel", serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.about-socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-evenly;
+  min-width: 132px;
+  gap: 0.6rem;
+  padding: 0.8rem 0.75rem;
+  border: 1px solid var(--border);
+  color: rgba(245, 237, 216, 0.78);
+  text-decoration: none;
+  font-family: "Cinzel", serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.social-link__label {
+  transform: translateY(1px);
+}
+
+.social-link__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--gold);
+}
+
+.social-link__icon svg {
+  display: block;
+}
+
+.social-link:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(201, 168, 76, 0.04);
+}
+
 .about-card {
   position: relative;
   border: 1px solid var(--border);
@@ -664,7 +723,7 @@ select {
 .menu-card__meta span,
 .menu-card__footer span,
 .hours-row span,
-.social-chip,
+.social-link,
 .footer__sub {
   font-family: "Cinzel", serif;
   font-size: 0.7rem;
@@ -743,20 +802,8 @@ select {
   flex-wrap: wrap;
 }
 
-.social-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.75rem 1.6rem;
-  border: 1px solid var(--border);
-  color: rgba(245, 237, 216, 0.75);
-  text-decoration: none;
-  transition: border-color 0.2s ease, color 0.2s ease;
-}
-
-.social-chip:hover {
-  border-color: var(--gold);
-  color: var(--gold);
+.social-link .social-link__label {
+  transform: none;
 }
 
 .pdf-panel {

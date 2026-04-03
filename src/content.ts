@@ -1,4 +1,4 @@
-import type { Feature, Hours, Review, Social, Stat } from "./types";
+import type { Feature, Hours, Review, Stat } from "./types";
 
 export const navLinks = [
   { label: "Story", href: "#/?section=about" },
@@ -86,20 +86,17 @@ export const openingHours: Hours[] = [
   { day: "Sunday", time: "4:00 pm - 8:00 pm" },
 ];
 
-export const socials: Social[] = [
-  {
-    icon: "IG",
+export const socials = {
+  instagram: {
     label: "Instagram",
     href: "https://www.instagram.com/pegasustaproom/",
   },
-  {
-    icon: "FB",
+  facebook: {
     label: "Facebook",
     href: "https://www.facebook.com/PegasusTapRoom/",
   },
-  {
-    icon: "UT",
+  untappd: {
     label: "Untappd",
     href: "https://untappd.com/v/pegasus-tap-room/8260044",
   },
-];
+} as const;

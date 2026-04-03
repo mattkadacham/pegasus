@@ -19,12 +19,6 @@ export type Hours = {
   time: string;
 };
 
-export type Social = {
-  icon: string;
-  label: string;
-  href: string;
-};
-
 export type BeerMenuSource = "mock" | "untappd";
 export type DrinksLoadStatus = "idle" | "loading" | "live" | "fallback" | "error";
 
