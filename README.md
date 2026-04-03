@@ -111,6 +111,7 @@ Key files:
 
 ## TODO
 
+- Review and update the site copy with Pegasus so the final wording matches their tone, priorities, and current offerings
 - Add real Untappd for Business credentials and switch the beer board from `mock` to `untappd`
 - Decide whether the official Untappd embed should stay behind a Call to Action button or be removed entirely
 - Consider replacing the PDF embed with structured data if Pegasus ever wants the full drinks menu rendered natively
