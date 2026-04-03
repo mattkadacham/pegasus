@@ -1,39 +1,12 @@
-import mockDrinks from "../data/drinks.json";
-import type { BeerMenuItem, BeerMenuSource } from "../types";
-
-type UntappdContainer = {
-  price?: string | number | null;
-  volume?: string | null;
-  size?: {
-    name?: string | null;
-    ounces?: number | null;
-  } | null;
-};
-
-type UntappdItem = {
-  id: number;
-  name?: string | null;
-  style?: string | null;
-  abv?: number | null;
-  brewery?: string | null;
-  description?: string | null;
-  label_image?: string | null;
-  label_image_hd?: string | null;
-  containers?: UntappdContainer[] | null;
-};
-
-type UntappdSection = {
-  id: number;
-  name?: string | null;
-  items?: UntappdItem[] | null;
-};
-
-type UntappdMenuResponse = {
-  menu?: {
-    sections?: UntappdSection[] | null;
-    on_deck_section?: UntappdSection | null;
-  };
-};
+import mockBeerMenu from "../data/mockBeerMenu.json";
+import type {
+  BeerMenuItem,
+  BeerMenuSource,
+  UntappdContainer,
+  UntappdMenuItem,
+  UntappdMenuResponse,
+  UntappdSection,
+} from "../types";
 
 const envSource = import.meta.env.VITE_BEER_MENU_SOURCE;
 
@@ -50,11 +23,11 @@ export function hasUntappdConfig() {
 }
 
 export function getMockBeerMenu() {
-  return mockDrinks as BeerMenuItem[];
+  return mockBeerMenu as BeerMenuItem[];
 }
 
-function formatAbv(abv?: number | null) {
-  return typeof abv === "number" ? `${abv}% ABV` : "ABV TBC";
+function formatAbv(abv?: string | null) {
+  return abv ? `${abv}% ABV` : "ABV TBC";
 }
 
 function formatPrice(containers?: UntappdContainer[] | null) {
@@ -68,7 +41,7 @@ function formatPrice(containers?: UntappdContainer[] | null) {
   return price.startsWith("£") ? price : `£${price}`;
 }
 
-function formatDescription(item: UntappdItem, sectionName: string) {
+function formatDescription(item: UntappdMenuItem, sectionName: string) {
   if (item.description?.trim()) {
     return item.description.trim();
   }
@@ -77,7 +50,7 @@ function formatDescription(item: UntappdItem, sectionName: string) {
 }
 
 function mapUntappdItems(section: UntappdSection) {
-  return (section.items ?? []).map(
+  return section.items.map(
     (item): BeerMenuItem => ({
       id: String(item.id),
       name: item.name ?? "Untitled Pour",
@@ -113,9 +86,9 @@ export async function fetchUntappdBeerMenu() {
   }
 
   const data = (await response.json()) as UntappdMenuResponse;
-  const sections = [...(data.menu?.sections ?? [])];
+  const sections = [...data.menu.sections];
 
-  if (data.menu?.on_deck_section) {
+  if (data.menu.on_deck_section) {
     sections.unshift(data.menu.on_deck_section);
   }
 
