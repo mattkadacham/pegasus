@@ -1,11 +1,11 @@
 import type { Feature, Hours, Review, Social, Stat } from "./types";
 
 export const navLinks = [
-  { label: "Story", href: "about", type: "section" },
-  { label: "Drinks", href: "drinks", type: "section" },
-  { label: "Atmosphere", href: "atmosphere", type: "section" },
-  { label: "Visit", href: "visit", type: "section" },
-  { label: "Events", href: "events", type: "section" },
+  { label: "Story", href: "#/?section=about" },
+  { label: "Drinks", href: "#/?section=drinks" },
+  { label: "Atmosphere", href: "#/?section=atmosphere" },
+  { label: "Visit", href: "#/?section=visit" },
+  { label: "Events", href: "#/?section=events" },
 ] as const;
 
 export const stats: Stat[] = [

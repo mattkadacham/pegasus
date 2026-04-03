@@ -1,11 +1,28 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { SectionIntro } from "../components/SectionIntro";
 import { featuredCategories, features, openingHours, reviews, socials, stats } from "../content";
 
 export function HomePage() {
+  const location = useLocation();
+
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const section = params.get("section");
+
+    if (!section) {
+      return;
+    }
+
+    window.setTimeout(() => {
+      document.getElementById(section)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 0);
+  }, [location.search]);
 
   return (
     <main>
@@ -28,9 +45,6 @@ export function HomePage() {
             a centuries-old space with original wooden beams and intimate corners.
           </p>
           <div className="hero__actions">
-            <button className="button button--solid" type="button" onClick={() => scrollToSection("drinks")}>
-              See Today&apos;s Pours
-            </button>
             <Link className="button button--solid" to="/drinks">
               Open Live Drinks Page
             </Link>
