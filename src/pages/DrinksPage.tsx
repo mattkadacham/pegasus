@@ -4,6 +4,7 @@ import { SectionIntro } from "../components/SectionIntro";
 import { useDrinks } from "../hooks/useDrinks";
 
 const bottlesPdfUrl = "https://www.pegasustaproom.com/wp-content/uploads/2024/09/PegClipMenu1.pdf";
+const bottlesPdfEmbedUrl = `${bottlesPdfUrl}#view=FitH`;
 const untappdEmbedUrl = "https://business.untappd.com/embeds/iframes/49169/174893";
 
 export function DrinksPage() {
@@ -86,8 +87,14 @@ export function DrinksPage() {
             body="Beyond the taps, the full drinks menu covers bottles, cans, low and no alcohol, wine, sparkling, and everything else worth browsing a little more slowly."
           />
 
+          <div className="section-cta">
+            <a className="button button--solid" href={bottlesPdfUrl} target="_blank" rel="noreferrer">
+              Download Printable Menu
+            </a>
+          </div>
+
           <div className="pdf-panel">
-            <iframe title="Pegasus drinks menu PDF" src={bottlesPdfUrl} />
+            <iframe title="Pegasus drinks menu PDF" src={bottlesPdfEmbedUrl} />
           </div>
         </div>
       </section>

@@ -808,7 +808,6 @@ select {
 
 .pdf-panel {
   width: 100%;
-  min-height: 900px;
   border: 1px solid var(--border);
   background: rgba(255, 255, 255, 0.02);
   overflow: hidden;
@@ -849,7 +848,7 @@ select {
 
 .pdf-panel iframe {
   width: 100%;
-  min-height: 900px;
+  height: min(1200px, 90vh);
   border: 0;
 }
 
@@ -935,9 +934,13 @@ select {
   }
 
   .pdf-panel,
-  .pdf-panel iframe,
   .embed-panel__frame,
   .embed-panel__frame iframe {
+    min-height: 540px;
+  }
+
+  .pdf-panel iframe {
+    height: 78vh;
     min-height: 540px;
   }
 
