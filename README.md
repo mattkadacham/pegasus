@@ -76,6 +76,8 @@ Example env file:
 - [.env.example](.env.example)
 
 Variables:
+- `VITE_SITE_URL=https://mattkadacham.github.io/pegasus/`
+- `VITE_SITE_BASE_PATH=/pegasus/`
 - `VITE_BEER_MENU_SOURCE=mock`
 - `VITE_UNTAPPD_EMAIL=`
 - `VITE_UNTAPPD_READ_ONLY_TOKEN=`
@@ -84,6 +86,12 @@ Variables:
 `VITE_BEER_MENU_SOURCE` options:
 - `mock`
 - `untappd`
+
+`VITE_SITE_URL` and `VITE_SITE_BASE_PATH` are used during the build for:
+- canonical / Open Graph metadata
+- `robots.txt`
+- `sitemap.xml`
+- the GitHub Pages SPA `404.html` fallback
 
 If `untappd` is enabled but the credentials are missing, or the request fails, the app falls back to the local mock beer menu.
 

@@ -35,6 +35,9 @@ jobs:
         run: bun install --frozen-lockfile
 
       - name: Build site
+        env:
+          VITE_SITE_URL: https://mattkadacham.github.io/pegasus/
+          VITE_SITE_BASE_PATH: /pegasus/
         run: bun run build
 
       - name: Upload artifact

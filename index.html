@@ -2,10 +2,27 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
+      name="description"
+      content="Pegasus Tap Room is a craft beer and gin bar in Canterbury, with rotating taps, world gins, wine, and a live drinks page."
     />
+    <meta name="theme-color" content="#0d0a06" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Pegasus Tap Room" />
+    <meta property="og:title" content="Pegasus Tap Room" />
+    <meta
+      property="og:description"
+      content="Craft beer, gin, wine, and a live drinks page for Pegasus Tap Room in Canterbury."
+    />
+    <meta property="og:url" content="%SITE_URL%" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Pegasus Tap Room" />
+    <meta
+      name="twitter:description"
+      content="Craft beer, gin, wine, and a live drinks page for Pegasus Tap Room in Canterbury."
+    />
+    <link rel="canonical" href="%SITE_URL%" />
     <title>Pegasus Tap Room</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,6 +30,40 @@
       href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@400;600&family=Lato:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BarOrPub",
+        "name": "Pegasus Tap Room",
+        "url": "%SITE_URL%",
+        "telephone": "+44 1227 637280",
+        "email": "info@pegasustaproom.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "86 St Dunstan's Street",
+          "addressLocality": "Canterbury",
+          "postalCode": "CT2 8AD",
+          "addressCountry": "GB"
+        },
+        "sameAs": [
+          "https://www.instagram.com/pegasustaproom/",
+          "https://www.facebook.com/PegasusTapRoom/",
+          "https://untappd.com/v/pegasus-tap-room/8260044"
+        ]
+      }
+    </script>
+    <script>
+      (function () {
+        const redirect = sessionStorage.getItem("pegasus-path");
+
+        if (!redirect) {
+          return;
+        }
+
+        sessionStorage.removeItem("pegasus-path");
+        window.history.replaceState(null, "", redirect);
+      })();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </head>
   <body>

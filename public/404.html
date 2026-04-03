@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pegasus Tap Room</title>
+    <script>
+      (function () {
+        var location = window.location;
+        var basePath = "/pegasus";
+        var nextPath = location.pathname + location.search + location.hash;
+
+        sessionStorage.setItem("pegasus-path", nextPath);
+        location.replace(location.origin + basePath + "/");
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>

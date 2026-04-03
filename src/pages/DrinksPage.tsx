@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Seo } from "../components/Seo";
 import { SectionIntro } from "../components/SectionIntro";
 import { useDrinks } from "../hooks/useDrinks";
 
@@ -16,6 +17,10 @@ export function DrinksPage() {
 
   return (
     <main className="page">
+      <Seo
+        title="Drinks | Pegasus Tap Room"
+        description="Current pours at Pegasus Tap Room, plus the latest printable drinks menu for bottles, cans, wine, and sparkling."
+      />
       <section className="section">
         <div className="section__inner">
           <SectionIntro

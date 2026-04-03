@@ -1,4 +1,4 @@
-import { HashRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ScrollManager } from "./components/ScrollManager";
 import { SiteLayout } from "./components/SiteLayout";
 import { DrinksPage } from "./pages/DrinksPage";
@@ -6,7 +6,7 @@ import { HomePage } from "./pages/HomePage";
 
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <ScrollManager />
       <Routes>
         <Route element={<SiteLayout />}>
@@ -14,7 +14,7 @@ function App() {
           <Route path="drinks" element={<DrinksPage />} />
         </Route>
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   );
 }
 

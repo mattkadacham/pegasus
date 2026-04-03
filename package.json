@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "bunx vite",
+    "prebuild": "node scripts/generate-seo-files.mjs",
     "build": "tsc -b && bunx vite build",
     "preview": "bunx vite preview"
   },

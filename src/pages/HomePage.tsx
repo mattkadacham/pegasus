@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { FacebookLink, InstagramLink, MailLink, UntappdLink } from "../components/LinkButtons";
+import { Seo } from "../components/Seo";
 import { SectionIntro } from "../components/SectionIntro";
 import { featuredCategories, features, openingHours, reviews, socials, stats } from "../content";
 
@@ -27,6 +28,10 @@ export function HomePage() {
 
   return (
     <main>
+      <Seo
+        title="Pegasus Tap Room"
+        description="Craft beer, gin, wine, and intimate bar-room atmosphere in Canterbury, plus a live drinks page for current pours."
+      />
       <section className="hero" id="hero">
         <div className="hero__backdrop" aria-hidden="true" />
         <div className="hero__content">

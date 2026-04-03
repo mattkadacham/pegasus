@@ -2,6 +2,8 @@ import { Link, Outlet } from "react-router-dom";
 import { navLinks } from "../content";
 
 export function SiteLayout() {
+  const homeSectionHref = (section: string) => `${import.meta.env.BASE_URL}?section=${section}`;
+
   return (
     <div className="app-shell">
       <div className="noise" aria-hidden="true" />
@@ -13,8 +15,8 @@ export function SiteLayout() {
         <nav aria-label="Primary">
           <ul className="nav-links">
             {navLinks.map((item) => (
-              <li key={item.href}>
-                <a className="nav-link-button" href={item.href}>
+              <li key={item.section}>
+                <a className="nav-link-button" href={homeSectionHref(item.section)}>
                   {item.label}
                 </a>
               </li>
@@ -30,7 +32,7 @@ export function SiteLayout() {
         <p className="footer__sub">Craft Beer and Gin Palace • Canterbury, Kent</p>
         <div className="footer__links">
           {navLinks.map((item) => (
-            <a className="nav-link-button" href={item.href} key={item.href}>
+            <a className="nav-link-button" href={homeSectionHref(item.section)} key={item.section}>
               {item.label}
             </a>
           ))}
